@@ -19,7 +19,7 @@ export class CwcPopper {
     @Prop() arrow: boolean = false;
     @Prop() closeable: boolean = true;
 
-    @State() tooltip: Popper;
+    @State() popper: Popper;
 
     componentDidLoad() {
         if (this.refid) {
@@ -95,7 +95,7 @@ export class CwcPopper {
         this.content.classList.add("popper");
         this.content.classList.add(this.placement);
         const self = this;
-        this.tooltip = new Popper(this.btn, this.content, {
+        this.popper = new Popper(this.btn, this.content, {
             placement: this.placement,
             modifiers: {
                 flip: {
@@ -117,10 +117,10 @@ export class CwcPopper {
 
     @Method()
     close() {
-        this.openState = false
-        if (this.tooltip && this.tooltip.destroy && this.closeable) {
+        this.openState = false;
+        if (this.popper && this.popper.destroy && this.closeable) {
             this.content.classList.remove("show");
-            this.tooltip.destroy();
+            this.popper.destroy();
         }
     }
 
