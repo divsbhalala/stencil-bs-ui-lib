@@ -1,5 +1,6 @@
 import {Component, Element, HostElement, Prop, State, Method} from '@stencil/core';
-import Popper, {Placement} from 'popper.js';
+import Popper from 'popper.js';
+import {Placement} from 'bootstrap'
 
 @Component({
     tag: 'cwc-popper',
